@@ -46,6 +46,7 @@ func NewTimeoutClient(args ...interface{}) *http.Client {
     return &http.Client{
         Transport: &http.Transport{
             Dial: TimeoutDialer(config),
+            DisableKeepAlives: true,
         },
     }
 }
