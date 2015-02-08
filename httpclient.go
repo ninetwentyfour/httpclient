@@ -3,7 +3,6 @@ package httpclient
 // pulled from https://gist.github.com/dmichael/5710968
 
 import (
-	"crypto/tls"
 	"net"
 	"net/http"
 	"time"
@@ -48,7 +47,6 @@ func NewTimeoutClient(args ...interface{}) *http.Client {
 		Transport: &http.Transport{
 			Dial:              TimeoutDialer(config),
 			DisableKeepAlives: true,
-			TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
 		},
 	}
 }
